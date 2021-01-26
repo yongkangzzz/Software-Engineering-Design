@@ -1,5 +1,6 @@
 package contacts;
 
+//Class combining person and contact information
 public class Contact {
     Person Person;
     ContactInfo ContactInfo;

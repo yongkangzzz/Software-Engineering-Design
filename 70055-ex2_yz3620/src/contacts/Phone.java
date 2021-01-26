@@ -1,5 +1,6 @@
 package contacts;
 
+//Phone class extending ContactInfo class and can deal with audio work
 public class Phone extends ContactInfo implements AudioMessageEnabled {
     public Phone(String phoneNumber) {
         this.contactInfo = phoneNumber;
@@ -20,12 +21,19 @@ public class Phone extends ContactInfo implements AudioMessageEnabled {
     void sendMessage(String msg) {
         Audio newAudio = new Audio(msg);
         sendAudioMessage(newAudio);
-        return;
     }
 
     @Override
     public void sendAudioMessage(Audio msg) {
-        System.out.println(msg.toString());
-        System.out.println(contactInfo);
+        try {
+            System.out.println(msg.toString());
+        } catch (Exception e) {
+            System.out.println("The audio message is invalid!");
+        }
+        try {
+            System.out.println(contactInfo);
+        } catch (Exception e) {
+            System.out.println("Contact Information is invalid!");
+        }
     }
 }

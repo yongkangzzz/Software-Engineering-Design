@@ -1,9 +1,10 @@
 package contacts;
 
-public class Email extends ContactInfo implements TextMessageEnabled{
-    public Email(String emailAddress){
-        this.contactInfo=emailAddress;
-        this.contactInfoType="email";
+//Email class extending ContactInfo class, text related work will be implemented
+public class Email extends ContactInfo implements TextMessageEnabled {
+    public Email(String emailAddress) {
+        this.contactInfo = emailAddress;
+        this.contactInfoType = "email";
     }
 
     @Override
@@ -19,12 +20,15 @@ public class Email extends ContactInfo implements TextMessageEnabled{
     @Override
     void sendMessage(String msg) {
         sendTextMessage(msg);
-        return;
     }
 
     @Override
     public void sendTextMessage(String msg) {
         System.out.println(msg);
-        System.out.println(contactInfo);
+        try {
+            System.out.println(contactInfo);
+        } catch (Exception e) {
+            System.out.println("Contact Information is invalid!");
+        }
     }
 }
